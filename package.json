@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Pratyush-Udhani/npm-packages.git"
+    "url": "git+ssh://git@github.com/Pratyush-Udhani/csv-to-prismadb.git"
   },
   "keywords": [
     "prisma",
@@ -20,9 +20,9 @@
   "author": "Pratyush Udhani",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Pratyush-Udhani/npm-packages/issues"
+    "url": "https://github.com/Pratyush-Udhani/csv-to-prismadb/issues"
   },
-  "homepage": "https://github.com/Pratyush-Udhani/npm-packages#readme",
+  "homepage": "https://github.com/Pratyush-Udhani/csv-to-prismadb#readme",
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "@types/node": "^20.5.2",
