@@ -1,0 +1,33 @@
+{
+  "name": "csv-to-prismadb",
+  "version": "0.0.1",
+  "description": "Convert your csv to a prisma schema ",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "lint": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Pratyush-Udhani/npm-packages.git"
+  },
+  "keywords": [
+    "prisma",
+    "csv"
+  ],
+  "author": "Pratyush Udhani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pratyush-Udhani/npm-packages/issues"
+  },
+  "homepage": "https://github.com/Pratyush-Udhani/npm-packages#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@types/node": "^20.5.2",
+    "changeset": "^0.2.6",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
+  }
+}
