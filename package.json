@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Convert your csv to a prisma schema ",
   "main": "dist/index.js",
+  "type": "module",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
