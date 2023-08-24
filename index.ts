@@ -1,3 +1,5 @@
-export const add = (a: number, b: number) => {
-  return a + b
-}
+import { text2img } from '@/main'
+
+export { text2img } from '@/main'
+
+text2img({}); 
