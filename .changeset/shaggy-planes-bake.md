@@ -1,0 +1,5 @@
+---
+"segmind-npm": patch
+---
+
+initialize
