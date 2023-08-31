@@ -2,4 +2,4 @@
 "text2img": patch
 ---
 
-Initialize
+Removed older dependencies

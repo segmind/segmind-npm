@@ -1,7 +1,7 @@
 {
   "name": "text2img",
   "version": "0.0.1",
-  "description": "Convert your csv to a prisma schema ",
+  "description": "Generate image from text",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -15,8 +15,8 @@
     "url": "git+ssh://git@github.com:segmind/segmind-npm.git"
   },
   "keywords": [
-    "prisma",
-    "csv"
+    "text-to-image",
+    "generate"
   ],
   "author": "Pratyush Udhani",
   "license": "ISC",
