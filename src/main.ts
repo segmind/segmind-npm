@@ -1,4 +1,3 @@
-import { dummyModelCardData as data } from './models'
 
 type BaseModelType = {
     type: string, 
@@ -27,7 +26,7 @@ type Text2ImgInputType = {
 }
 
 export const text2img = ({}: Text2ImgInputType) => {
-    console.log("package works: ", data[0])
+    console.log("package works: ")
 }
 
 text2img({})
