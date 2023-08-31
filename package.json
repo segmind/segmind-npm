@@ -1,5 +1,5 @@
 {
-  "name": "segmind/segmind-npm",
+  "name": "segmind-npm",
   "version": "0.1.0",
   "description": "Generate image from text",
   "main": "dist/index.js",
