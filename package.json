@@ -10,6 +10,10 @@
     "release": "pnpm run build && changeset publish",
     "lint": "tsc"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  }, 
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/segmind/segmind-npm"
