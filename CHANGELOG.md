@@ -1,5 +1,11 @@
 # segmind/segmind-npm
 
+## 0.0.2
+
+### Patch Changes
+
+- 800327a: initialize
+
 ## 0.1.0
 
 ### Minor Changes

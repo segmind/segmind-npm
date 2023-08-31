@@ -1,6 +1,6 @@
 {
   "name": "segmind-npm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate image from text",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -13,7 +13,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
     "access": "public"
-  }, 
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/segmind/segmind-npm"
