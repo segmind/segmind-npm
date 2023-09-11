@@ -1,6 +1,6 @@
 {
   "name": "segmind-npm",
-  "version": "0.0.1",
+  "version": "0.0.2-beta",
   "description": "Generate image from text",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

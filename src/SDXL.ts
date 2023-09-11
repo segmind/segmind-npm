@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 
 export class SDXL {
   private url: string;
@@ -45,6 +45,8 @@ export class SDXL {
     data.base64 = data.base64 || false;
 
     //segmind api calls
+        
+    try {
         axios({
             url: this.url, 
             data: JSON.stringify(data), 
@@ -54,6 +56,9 @@ export class SDXL {
                 'x-api-key': `${this.apiKey}`
             }
         })
-          .then((response) => console.log(response.data))
+          .then((response) => { return response })
+    } catch (err: any) {
+        throw new Error (err)
+    }
   }
 }
