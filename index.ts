@@ -1,0 +1,2 @@
+export  { SDXL }  from '@/SDXL'
+

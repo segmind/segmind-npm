@@ -1,0 +1,37 @@
+{
+  "name": "segmind-npm",
+  "version": "0.0.1",
+  "description": "Generate image from text",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "release": "npm run build && changeset publish --public",
+    "lint": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/segmind/segmind-npm"
+  },
+  "keywords": [
+    "text-to-image",
+    "generate"
+  ],
+  "author": "Pratyush Udhani",
+  "license": "ISC",
+  "bugs": {
+    "url": "git+ssh://git@github.com/segmind/segmind-npm"
+  },
+  "homepage": "git+ssh://git@github.com/segmind/segmind-npm#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@types/node": "^20.5.2",
+    "changeset": "^0.2.6",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.5.0"
+  }
+}
