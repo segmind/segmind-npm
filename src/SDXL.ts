@@ -1,16 +1,6 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 
-export class SDXL {
-  private url: string;
-  private apiKey: string | null;
-
-  constructor(apiKey: string | null = null) {
-    this.url = "https://api.segmind.com/v1/sdxl1.0-txt2img";
-    this.apiKey = apiKey;
-    console.log("instantiatie class")
-  }
-
-  generate( data: {
+export declare type SDXLType = {
     prompt: string,
     negativePrompt?: string,
     style?: string, 
@@ -25,40 +15,48 @@ export class SDXL {
     refiner?: boolean, 
     high_noise_fraction?: number; 
     base64?: boolean
+}
 
-  }){
+export class SDXL {
+  private url: string;
+  private apiKey: string | null;
 
-      if (this.apiKey === null) throw new Error("Not authenticated. Please add API Key."); 
+  constructor(apiKey: string | null = null) {
+    this.url = "https://api.segmind.com/v1/sdxl1.0-txt2img";
+    this.apiKey = apiKey;
+  }
 
-    data.negativePrompt = data.negativePrompt || "out of frame, duplicate, watermark, signature, text, error, deformed" ,
-    data.samples = data.samples || 1; 
-    data.style = data.style || "base"; 
-    data.scheduler = data.scheduler || "UniPC"; 
-    data.num_inference_steps = data.num_inference_steps || 20,
-    data.guidance_scale = data.guidance_scale || 7.5,
-    data.seed = Math.floor(Math.random() * 1000000000),
-    data.strength= data.strength || 0.75; 
-    data.img_width = data.img_width || 1024; 
-    data.img_height = data.img_height || 1024; 
-    data.refiner = data.refiner || true; 
-    data.high_noise_fraction = data.high_noise_fraction || 0.8; 
-    data.base64 = data.base64 || false;
+  async generate(data: SDXLType) {
+    if (this.apiKey === null) throw new Error("Not authenticated. Please add API Key."); 
+    if (data.prompt === "") throw new Error("Please enter a prompt"); 
+    
+    data = {
+        prompt: data.prompt, 
+        negativePrompt: data.negativePrompt || "out of frame, duplicate, watermark, signature, text, error, deformed" ,
+        samples: data.samples || 1, 
+        style: data.style || "base", 
+        scheduler: data.scheduler || "UniPC", 
+        num_inference_steps: data.num_inference_steps || 20,
+        guidance_scale: data.guidance_scale || 7.5,
+        seed: Math.floor(Math.random() * 1000000000),
+        strength: data.strength || 0.75, 
+        img_width: data.img_width || 1024, 
+        img_height: data.img_height || 1024, 
+        refiner: data.refiner || true, 
+        high_noise_fraction: data.high_noise_fraction || 0.8, 
+        base64: data.base64 || false,
+    }
 
     //segmind api calls
-        
-    try {
-        axios({
-            url: this.url, 
-            data: JSON.stringify(data), 
-            method: 'post', 
-            headers: {
-                'Content-Type': 'application/json', 
-                'x-api-key': `${this.apiKey}`
-            }
-        })
-          .then((response) => { return response })
-    } catch (err: any) {
-        throw new Error (err)
-    }
+    return axios({
+        url: this.url, 
+        data: JSON.stringify(data), 
+        method: 'post', 
+        headers: {
+            'Content-Type': 'application/json', 
+            'x-api-key': `${this.apiKey}`
+        }
+    })
   }
 }
+

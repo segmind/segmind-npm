@@ -9,8 +9,13 @@
 
 ```typescript
 import { SDXL } from "segmind-npm"
-const res = new SDXL(apiKey as string); 
 
-const response = res.generate({prompt: "panda sitting in a bar"}); 
-console.log(response.data); 
+//get your api key from cloud.segmind.com
+const apiKey = "SG_************"
+
+const sdxl = new SDXL(apiKey); 
+
+sdxl.generate({prompt: "a panda on a chair"}).then((response) => {
+    console.log(response)
+});
 ```
