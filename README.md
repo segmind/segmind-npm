@@ -1,69 +1,108 @@
-# SEGMIND NPM
+# SEGMIND NPM - Generate Images with Ease
 
-## Process
+## Overview
 
-- Import the package from segmind-npm package list from list of available packages. 
-- Import the package type to get the input type of the generate function. 
-- Add the api key from cloud.segmind.com while initializing new Model. 
-- Enter the prompt(required) and change any parameters to get a promise as a response. 
-- Get the image with response.data
+Segmind NPM is a powerful package that allows you to effortlessly generate images using state-of-the-art models from Segmind's cloud platform. With this package, you can easily integrate image generation capabilities into your applications, websites, or projects. This markdown provides you with a step-by-step guide on how to use Segmind NPM to create stunning images.
 
-```typescript
+## Installation
+
+To get started, you need to import the `segmind-npm` package into your project. You can do this using npm or yarn:
+
+```bash
+npm install segmind-npm
+# or
+yarn add segmind-npm
+```
+
+## Initializing the API Key
+
+Before you can generate images, you'll need an API key from [cloud.segmind.com](https://cloud.segmind.com). This key will grant you access to Segmind's powerful image generation models. Replace `"YOUR API-KEY"` with your actual API key in the code below:
+
+```javascript
 import { SDXL, SDXLType } from "segmind-npm"
 
-//get your api key from cloud.segmind.com
-const apiKey = "SG_************"
+const apiKey = "YOUR API-KEY";
+const sdxl = new SDXL(apiKey);
+```
 
-const sdxl = new SDXL(apiKey); 
+## Generating Images
 
-sdxl.generate({prompt: "a panda on a chair"}).then((response) => {
-    console.log(response.data)
+Now that you have initialized the API key, you can generate images with just a few lines of code. Specify your desired image by providing a prompt, and you can also customize various parameters to control the image generation process:
+
+```javascript
+sdxl.generate({
+  prompt: "a panda on a chair",
+  style: "base", // Style of the image
+  samples: 1, // Number of samples to generate
+  scheduler: "UniPC", // Type of scheduler
+  num_inference_steps: 25, // Number of denoising steps
+  guidance_scale: 8, // Scale for classifier-free guidance
+  strength: 0.2, // Transformation strength
+  high_noise_fraction: 0.8, // Fraction of inference steps to run on each expert
+  seed: "468685", // Seed for image generation
+  img_width: 1024, // Image width
+  img_height: 1024, // Image height
+  refiner: true, // Improve image quality
+  base64: false, // Base64 encoding of the output image
+}).then((response) => {
+    // Handle the generated image here
+    console.log(response.data);
 });
 ```
 
-## List of exported models: 
+## Exported Models
 
-```typescript
-export { SDXL, SDXLType } from '@/SDXL';
-export { Flat2D, Flat2DType } from '@/Flat2D';
-export { Mix526, Mix526Type } from '@/526Mix';
-export { AllInOnePixel, AllInOnePixelType } from '@/AllInOnePixel';
-export { BgRemoval, BgRemovalType } from '@/BgRemoval';
-export { Cartoon, CartoonType } from '@/Cartoon';
-export { Codeformer, CodeformerType } from '@/Codeformer';
-export { Colorful, ColorfulType } from '@/Colorful';
-export { Controlnet, ControlnetType } from '@/Controlnet';
-export { CuteRichStyle, CuteRichStyleType } from '@/CuteRichStyle';
-export { CyberRealistic, CyberRealisticType } from '@/CyberRealistic';
-export { DeepSpacedDiffusion, DeepSpacedDiffusionType } from '@/DeepSpacedDiffusion';
-export { Dreamshaper, DreamshaperType } from '@/Dreamshaper';
-export { DvArch, DvArchType } from '@/DvArch';
-export { EdgeOfRealism, EdgeOfRealismType } from '@/EdgeOfRealism';
-export { EpicRealism, EpicRealismType } from '@/EpicRealism';
-export { Esrgan, EsrganType } from '@/Esrgan';
-export { Faceswap, FaceswapType } from '@/Faceswap';
-export { FantassifiedIcons, FantassifiedIconsType } from '@/FantassifiedIcons';
-export { FruitFusion, FruitFusionType } from '@/FruitFusion';
-export { Icbinp, IcbinpType } from '@/Icbinp';
-export { Img2Img, Img2ImgType } from '@/Img2Img';
-export { Inpainting, InpaintingType } from '@/Inpainting';
-export { Juggernaut, JuggernautType } from '@/Juggernaut';
-export { Kandinsky, KandinskyType } from '@/Kandinsky';
-export { Majicmix, MajicmixType } from '@/Majicmix';
-export { Manmarumix, ManmarumixType } from '@/Manmarumix';
-export { Paragon, ParagonType } from '@/Paragon';
-export { PotraitSD, PotraitSDType } from '@/PotraitSD';
-export { QRGenerator, QRGeneratorType } from '@/QRGenerator';
-export { RCNZ, RCNZType } from '@/RCNZ';
-export { RPG, RPGType } from '@/RPG';
-export { RealisticVision, RealisticVisionType } from '@/RealisticVision';
-export { Reliberate, ReliberateType } from '@/Reliberate';
-export { Revanimated, RevanimatedType } from '@/Revanimated';
-export { SDOutpaint, SDOutpaintType } from '@/SDOutpaint';
-export { Samaritan, SamaritanType } from '@/Samaritan';
-export { SciFi, SciFiType } from '@/SciFi';
-export { SegmentAnything, SegmentAnythingType } from '@/SegmentAnything';
-export { SmallSD, SmallSDType } from '@/SmallSD';
-export { TinySD, TinySDType } from '@/TinySD';
-export { Word2Img, Word2ImgType } from '@/Word2Img';
-```
+Segmind NPM provides a wide range of exported models that you can use for various image generation tasks. Here is a list of some of the available models:
+
+- `SDXL`
+- `Flat2D`
+- `Mix526`
+- `AllInOnePixel`
+- `BgRemoval`
+- `Cartoon`
+- `Codeformer`
+- `Colorful`
+- `Controlnet`
+- `CuteRichStyle`
+- `CyberRealistic`
+- `DeepSpacedDiffusion`
+- `Dreamshaper`
+- `DvArch`
+- `EdgeOfRealism`
+- `EpicRealism`
+- `Esrgan`
+- `Faceswap`
+- `FantassifiedIcons`
+- `FruitFusion`
+- `Icbinp`
+- `Img2Img`
+- `Inpainting`
+- `Juggernaut`
+- `Kandinsky`
+- `Majicmix`
+- `Manmarumix`
+- `Paragon`
+- `PotraitSD`
+- `QRGenerator`
+- `RCNZ`
+- `RPG`
+- `RealisticVision`
+- `Reliberate`
+- `Revanimated`
+- `SDOutpaint`
+- `Samaritan`
+- `SciFi`
+- `SegmentAnything`
+- `SmallSD`
+- `TinySD`
+- `Word2Img`
+
+You can choose the model that best suits your specific image generation needs.
+
+## Additional Information
+
+For a comprehensive list of API parameters and their descriptions, you can refer to the API documentation on the [Segmind website](https://segmind.com/). This will provide you with detailed information on each parameter and how to use them effectively.
+
+With Segmind NPM, you can easily harness the power of Segmind's image generation models to create stunning and customized images for your projects.
+
+Feel free to explore and experiment with different prompts and parameters to achieve the desired results for your image generation tasks. Happy coding!
