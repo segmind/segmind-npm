@@ -34,7 +34,8 @@ export class Esrgan {
         return axios({
             url: this.url, 
             data: JSON.stringify(data), 
-            method: 'post', 
+            method: 'post',
+            responseType: 'stream',
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json', 
